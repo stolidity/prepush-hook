@@ -15,7 +15,7 @@ Installation
 
 Everything else is automatic!
 
-I recommend putting precommit-hook in your project's devDependencies to make sure that anyone who may be contributing to your project will have the hook installed.
+I recommend putting prepush-hook in your project's devDependencies to make sure that anyone who may be contributing to your project will have the hook installed.
 
 ```
 {
@@ -26,7 +26,7 @@ I recommend putting precommit-hook in your project's devDependencies to make sur
     "test": "./other/command"
   },
   "devDependencies": {
-    "precommit-hook": "latest"
+    "prepush-hook": "latest"
   }
 }
 ```
@@ -56,7 +56,7 @@ OR
 {
   "name": "your_project",
   "description": "just an example",
-  "precommit": ["test"]
+  "prepush": ["test"]
 }
 ```
 
@@ -86,7 +86,7 @@ npm test
 
 These scripts can be any shell executable commands, but must exit with a status code of 0 for success and 1 or greater for failure. The `PATH` environment variable used when executing these scripts will be similar to how npm configures it. That means if you `npm install jshint` locally to your project, you can put simply `"jshint ."` for your script rather than `"./node_modules/.bin/jshint ."`.
 
-You may configure what scripts will be run by the hook, by passing an array of script names to the `"precommit"` key in your package.json.
+You may configure what scripts will be run by the hook, by passing an array of script names to the `"prepush"` key in your package.json.
 
 ```javascript
 {
@@ -97,7 +97,7 @@ You may configure what scripts will be run by the hook, by passing an array of s
     "validate": "./command/to/run",
     "test": "./other/command"
   },
-  "precommit": ["lint", "test"]
+  "prepush": ["lint", "test"]
 }
 ```
 
