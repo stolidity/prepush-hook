@@ -12,12 +12,12 @@ Thanks to [nlf] and [marapper] for their work on [precommit-hook] and [prepush-h
 Installation
 -----
 
-    npm install prepush-hook
+    npm install prepush-hook2
 
 
 Everything else is automatic!
 
-I recommend putting prepush-hook in your project's devDependencies to make sure that anyone who may be contributing to your project will have the hook installed.
+I recommend putting prepush-hook2 in your project's devDependencies to make sure that anyone who may be contributing to your project will have the hook installed.
 
 ```
 {
@@ -28,31 +28,13 @@ I recommend putting prepush-hook in your project's devDependencies to make sure 
     "test": "./other/command"
   },
   "devDependencies": {
-    "prepush-hook": "latest"
+    "prepush-hook2": "latest"
   }
 }
 ```
 
 Usage
 -----
-
-When you install this project, by default it will create sane `.jshintignore` and `.jshintrc` files for you if they do not already exist. That means it's safe to upgrade the hook after customizing these files, as they will never be overwritten. If you have your jshint configuration in your package.json, then the `.jshintrc` file will not be created ever.
-
-You can prevent this behavior by modifying your package.json file. If a `lint` script is specified and does not start with the string `"jshint"` OR if you configure the hook to run specific scripts, and that list of scripts does not include `"lint"`, the jshint configuration files will not be created.
-
-For example:
-
-```javascript
-{
-  "name": "your_project",
-  "description": "just an example",
-  "scripts": {
-    "lint": "some_other_linter ."
-  }
-}
-```
-
-OR
 
 ```javascript
 {
@@ -62,7 +44,7 @@ OR
 }
 ```
 
-If you do not configure the hook with an array of scripts to run, it will default to `["lint", "validate", "test"]` to maintain backwards compatibility with the old version of this hook. In addition to that, if a `lint` script is not specified, it will default to `"jshint ."`. If a `lint` script is configured, it will not be overridden. If an array of scripts is configured, it will be used and there will be no default `lint` script.
+If you do not configure the hook with an array of scripts to run, it will default to `["validate", "test"]` to maintain backwards compatibility with the old version of this hook. 
 
 Package.json
 ------------
