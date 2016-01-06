@@ -6,6 +6,7 @@ Thanks to [nlf] and [marapper] for their work on [precommit-hook] and [prepush-h
 
 [nlf]:https://github.com/nlf
 [precommit-hook]:https://github.com/nlf/precommit-hook
+[marapper]:https://github.com/marapper
 [prepush-hook]:https://github.com/marapper/prepush-hook
 
 Installation
