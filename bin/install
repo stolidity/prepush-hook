@@ -7,7 +7,6 @@ var utils = require('../utils');
 var projectRoot = utils.findProjectRoot();
 
 installHook();
-configJshint();
 
 function installHook() {
   utils.findGitRoot(function (err, root) {
@@ -28,29 +27,5 @@ function installHook() {
       fs.chmodSync(destPath, '755');
     }
   });
-}
-
-function configJshint() {
-  // if linting is disabled, or is not jshint, don't bother configuring it
-  var package = require(utils.findPackageJson());
-  if ((package.scripts && package.scripts.lint && !/^jshint/.test(package.scripts.lint)) ||
-    (package.prepush && !package.prepush.filter(function (p) { return p === 'lint'; }).length)) {
-    return;
-  }
-
-  var ignoreSource = path.resolve(__dirname, '..', 'files', 'jshintignore');
-  var ignoreDest = path.join(projectRoot, '.jshintignore');
-  var configSource = path.resolve(__dirname, '..', 'files', 'jshintrc');
-  var configDest = path.join(projectRoot, '.jshintrc');
-
-  if (!fs.existsSync(ignoreDest)) {
-    console.log('Creating default .jshintignore...');
-    fs.writeFileSync(ignoreDest, fs.readFileSync(ignoreSource));
-  }
-
-  if (!fs.existsSync(configDest) && !package.jshintConfig) {
-    console.log('Creating default .jshintrc...');
-    fs.writeFileSync(configDest, fs.readFileSync(configSource));
-  }
 }
 

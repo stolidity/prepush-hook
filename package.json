@@ -11,17 +11,14 @@
     "install": "hook_install",
     "uninstall": "hook_uninstall"
   },
-  "peerDependencies": {
-    "jshint": "~2.4.4"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/thadclay/prepush-hook.git"
+    "url": "https://github.com/stolidity/prepush-hook.git"
   },
-  "author": "Thaddaeus Clay <thadclay@gmail.com> (https://github.com/thadclay)",
+  "author": "Brian Wilhite <stolidity@gmail.com> (https://github.com/stolidity)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/thadclay/prepush-hook/issues"
+    "url": "https://github.com/stolidity/prepush-hook/issues"
   },
-  "homepage": "https://github.com/thadclay/prepush-hook"
+  "homepage": "https://github.com/stolidity/prepush-hook"
 }
