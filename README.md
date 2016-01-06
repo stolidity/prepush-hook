@@ -1,11 +1,12 @@
-prepush-hook
+prepush-hook2
 ============
 
-An npm installable git pre-push hook used to lint and test your code.
-Thanks to [nlf] for his [precommit-hook] project. prepush-hook borrows heavily from his work.
+An npm installable git pre-push hook used to run npm scripts on pre-push.
+Thanks to [nlf] and [marapper] for their work on [precommit-hook] and [prepush-hook]
 
 [nlf]:https://github.com/nlf
 [precommit-hook]:https://github.com/nlf/precommit-hook
+[prepush-hook]:https://github.com/marapper/prepush-hook
 
 Installation
 -----
@@ -15,7 +16,7 @@ Installation
 
 Everything else is automatic!
 
-I recommend putting precommit-hook in your project's devDependencies to make sure that anyone who may be contributing to your project will have the hook installed.
+I recommend putting prepush-hook in your project's devDependencies to make sure that anyone who may be contributing to your project will have the hook installed.
 
 ```
 {
@@ -26,7 +27,7 @@ I recommend putting precommit-hook in your project's devDependencies to make sur
     "test": "./other/command"
   },
   "devDependencies": {
-    "precommit-hook": "latest"
+    "prepush-hook": "latest"
   }
 }
 ```
@@ -97,36 +98,11 @@ You may configure what scripts will be run by the hook, by passing an array of s
     "validate": "./command/to/run",
     "test": "./other/command"
   },
-  "precommit": ["lint", "test"]
+  "prepush": ["lint", "test"]
 }
 ```
 
 This example would run only the `lint` and `test` scripts, in that order.
-
-JSHint Defaults
----------------
-
-The default `.jshintrc` looks like the following:
-
-```javascript
-{
-  "node": true, // node environment
-  "curly": true, // enforce using curly braces around blocks
-  "latedef": true, // enforce defining a variable before using it
-  "undef": true, // error on use of undefined variables
-  "unused": true, // error on variables that are defined but never used
-  "trailing": true // error on trailing whitespace
-  "eqeqeq": true // prohibits the use of == and != in favor of === and !==
-  "camelcase": true // force all variable names to use either camelCase style or UPPER_CASE
-  "maxlen": 80 // enforce line length maximum of 80
-}
-```
-
-And the default `.jshintignore` contains only one line
-
-```
-node_modules
-```
 
 License
 -------
