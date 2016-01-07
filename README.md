@@ -4,6 +4,8 @@ prepush-hook2
 An npm installable git pre-push hook used to run npm scripts on pre-push.
 Thanks to [nlf] and [marapper] for their work on [precommit-hook] and [prepush-hook]
 
+The main difference between this and prepush-hook is that it does not force you to install jshint. You can install your own linter, such as eslint, or no linter at all. Simply define whatever scripts you want in your package.json and add them to the `prepush` array, and they will run. It makes no assumptions about your stack and what tools you use.
+
 [nlf]:https://github.com/nlf
 [precommit-hook]:https://github.com/nlf/precommit-hook
 [marapper]:https://github.com/marapper
