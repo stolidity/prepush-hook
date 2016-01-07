@@ -13,12 +13,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/stolidity/prepush-hook.git"
+    "url": "https://github.com/stolidity/prepush-hook2.git"
   },
   "author": "Brian Wilhite <stolidity@gmail.com> (https://github.com/stolidity)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/stolidity/prepush-hook/issues"
+    "url": "https://github.com/stolidity/prepush-hook2/issues"
   },
-  "homepage": "https://github.com/stolidity/prepush-hook"
+  "homepage": "https://github.com/stolidity/prepush-hook2"
 }
+
