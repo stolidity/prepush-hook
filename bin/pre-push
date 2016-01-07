@@ -6,7 +6,7 @@ var path = require('path');
 
 // some status strings
 var fail = '\x1B[31mfailed!\x1B[39m';
-var ok = '\x1B[32mok\x1B[39m';
+var ok = '\x1B[32mok\x1B[39m (%d.%d secs)';
 var notfound = '\x1B[33mn/a\x1B[39m (no script found)';
 
 // longest name, for padding
@@ -34,12 +34,18 @@ env[pathKey] = path.join(projectRoot, 'node_modules', '.bin') + pathSep + env[pa
 // run the command for the given property
 function runCmd(name, done) {
   done = done || process.exit;
+  
+  var t0 = process.hrtime(), t1;
 
   var pad = '';
   for (var i = 0, il = longest - name.length; i < il; ++i) {
     pad += ' ';
   }
   process.stdout.write('running ' + name + ': ' + pad);
+  
+  var progress = setInterval(function(){
+    process.stdout.write('.');
+  }, 1000);
 
   if (!scripts[name]) {
     console.log(notfound);
@@ -48,13 +54,15 @@ function runCmd(name, done) {
 
   var cmd = (process.platform === 'win32' ? 'cmd /c ' : 'sh -c ') + '\"' + scripts[name] + '\"';
   exec(cmd, { cwd: projectRoot, env: env }, function (err, stdout, stderr) {
+    clearInterval(progress);
+    t1 = process.hrtime(t0);
     if (err) {
       console.log(fail);
       console.log(stdout);
       console.log(stderr);
       exit(err.code, process.exit);
     } else {
-      console.log(ok);
+      console.log(ok, t1[0], t1[1]/1000000|0);
       exit(0, done);
     }
   });
