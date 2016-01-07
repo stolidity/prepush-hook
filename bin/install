@@ -21,6 +21,12 @@ function installHook() {
     } else {
       sourcePath = path.join(__dirname, 'pre-push');
       destPath = path.join(root, '.git', 'hooks', 'pre-push');
+      folderPath = path.join(root, '.git', 'hooks');
+      
+      //create hooks directory if it does not exist
+      if (!fs.existsSync(folderPath)){
+        fs.mkdirSync(folderPath);
+      }
 
       console.log('Creating .git/hooks/pre-push...');
       fs.writeFileSync(destPath, fs.readFileSync(sourcePath, 'utf8').replace('{{projectRoot}}', projectRoot.replace(/\\/g, '\\\\')));
@@ -28,4 +34,3 @@ function installHook() {
     }
   });
 }
-

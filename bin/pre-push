@@ -90,7 +90,6 @@ function exit(code, callback) {
 if (!config || !config.length) {
   config = ['validate', 'test'];
   scripts = scripts || {};
-  scripts.lint = scripts.lint || 'jshint .';
 }
 
 var tasks = [];
@@ -105,4 +104,3 @@ config.forEach(function (cmd, i) {
 
 console.log('running pre-push checks...');
 tasks[0]();
-

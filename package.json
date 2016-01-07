@@ -1,6 +1,6 @@
 {
   "name": "prepush-hook2",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "An npm installable git pre-push hook used to run npm scripts on pre-push.",
   "bin": {
     "hook_install": "./bin/install",
