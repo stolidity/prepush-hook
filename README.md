@@ -11,6 +11,8 @@ The main difference between this and prepush-hook is that it does not force you 
 [marapper]:https://github.com/marapper
 [prepush-hook]:https://github.com/marapper/prepush-hook
 
+![](http://i.imgur.com/pf1Ju3h.gif)
+
 Installation
 -----
 
